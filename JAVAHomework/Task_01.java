@@ -1,43 +1,40 @@
-// 1. Вычислить n-ое треугольного число (сумма чисел от 1 до n), 
-// n! (произведение чисел от 1 до n)
+// 1. Написать метод, принимающий на вход два аргумента: len и initialValue, и 
+// возвращающий одномерный массив типа int длиной len, каждая ячейка 
+// которого равна initialValue;
 
 package JAVAHomework;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
-class Task_01 {
-    static int getTriangleNumber(int n) {
-        int sum = 0;
-        for (int index = 0; index < n; index++) {
-            sum += index + 1;
-        }
-        return sum;
-    }
-
-    static int getFactorial(int n) {
-        int result = 1;
-        for (int index = 0; index < n; index++) {
-            result *= index + 1;
-        }
-        return result;
-    }
-
+public class Task_01 {
     public static void main(String[] args) {
-        Scanner scn = new Scanner(System.in);
-        int n = 0;
-        System.out.printf("Введите натуральное число: ");
-        if (!scn.hasNextInt()) {
-            System.out.println("Вы ввели неправильное число!!!");
-        } else {
-            n = scn.nextInt();
-            if (n < 1)
-                System.out.println("Вы должны вводить только позитивные числа!!!");
-            else {
-                System.out.printf("Номер треугольника от %d это: %s! ", n, getTriangleNumber(n));
-                System.out.println();
-                System.out.printf("Факториал от %d это: %s! ", n, getFactorial(n));
-            }
+
+        Scanner f = new Scanner(System.in);
+
+        System.out.printf("Введите длину массива: ");
+
+        Integer len = f.nextInt();
+
+        System.out.printf("Введите число для массива: ");
+
+        Integer initialValue = f.nextInt();
+
+        int[] result = ArrayLen(len, initialValue);
+
+        System.out.println(Arrays.toString(result));
+
+        f.close();
+    }
+
+    private static int[] ArrayLen(int len, int initialValue) {
+
+        int[] array = new int[len];
+
+        for (int i = 0; i < array.length; i++){
+            array[i] = initialValue;
         }
-        scn.close();
+        return array;
+        
     }
 }

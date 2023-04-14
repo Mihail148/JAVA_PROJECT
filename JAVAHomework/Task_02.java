@@ -1,34 +1,19 @@
-// 2. Вывести все простые числа от 1 до 1000
+// 2. Задать одномерный массив и найти в нем минимальный и максимальный элементы ;
 
 package JAVAHomework;
 
- import java.util.ArrayList;
- import java.util.List;
- import java.util.Scanner;
-
 public class Task_02 {
     public static void main(String[] args) {
-                Scanner scanner = new Scanner(System.in);
-                System.out.print("Введите положительное число: ");
-                int input = scanner.nextInt();
-                scanner.close();
-                 List<Integer> primes = new ArrayList<>();
-        
-                 for (int i = 2; i <= input; i++) {
-                     boolean isPrimeNumber = true;
-        
-                     for (int j = 2; j < i; j++) {
-                         if (i % j == 0) {
-                             isPrimeNumber = false;
-                             break;
-                         }
-                     }
-        
-                     if (isPrimeNumber) {
-                         primes.add(i);
-                     }
-                 }
-                 System.out.println("Простые числа: " + primes);
-             }
-         }
-
+        int[] mass = {1, 1, 0, 0, 1, 0, 1, 1, 0, 1};
+        int maxMass = mass.length;
+        for(int i = 0; i < maxMass; i++){
+        System.out.print (i + "-" + mass[i]+" ");
+        }
+System.out.println("");
+        for(int i = 0; i < maxMass; i++)
+            if(mass[i] == 1) {
+                mass[i] = 0;
+            }else mass[i] = 1;
+        for(int i = 0; i < maxMass; i++){
+            System.out.print (i + "-" + mass[i]+" ");
+}}}

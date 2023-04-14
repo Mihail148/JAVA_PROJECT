@@ -1,30 +1,44 @@
-// 4. Задано уравнение вида q + w = e, q, w, e >= 0. 
-// Некоторые цифры могут быть заменены знаком вопроса, например, 2? + ?5 = 69. 
-// Требуется восстановить выражение до верного равенства. 
-// Предложить хотя бы одно решение или сообщить, что его нет.
+// 4. В консоли запросить имя пользователя. В зависимости от текущего времени, 
+// вывести приветствие вида:
+// "Доброе утро, <Имя>!", если время от 05:00 до 11:59
+// "Добрый день, <Имя>!", если время от 12:00 до 17:59;
+// "Добрый вечер, <Имя>!", если время от 18:00 до 22:59;
+// "Доброй ночи, <Имя>!", если время от 23:00 до 4:59
 
 
 
 package JAVAHomework;
 
+import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
 public class Task_04 {
-    
     public static void main(String[] args) {
+        LocalDateTime now = LocalDateTime.now();
+        Calendar calendar = new GregorianCalendar();
+        System.out.println(calendar);
+        System.out.println(now);
+        System.out.println("Введите имя!");
+        Scanner in = new Scanner(System.in);
+        String name = in.nextLine();
+        in.close();
+        System.out.println("Привет, " + name);
+        if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) >= 5
+                 && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) < 12) {
+             System.out.println("Доброе утро, " + name + "!");
+         } else if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) >= 12
+                 && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) < 18) {
+             System.out.println("Добрый день, " + name + "!");
+         } else if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) >= 18
+                 && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) < 23) {
+             System.out.println("Добрый вечер, " + name + "!");
+         } else if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) >= 23
+                 && Calendar.getInstance().get(Calendar.HOUR_OF_DAY) < 5) {
+             System.out.println("Доброй ночи, " + name + "!");
+         }  
+    }  
+ }
 
-        System.out.println("\n\nЗадано выражение: 2? + ?5 = 69 . Восстановить выражение до верного равенства.");
-        int count = 0;
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                if (20 + i + j * 10 + 5 == 69) {
-                    count += 1;
-                    System.out.println(count + ") 2" + i + " + " + j + "5" + " = 69");
-                }
-            }
-        }
-        System.out.println("\n");
-        if (count == 0) {
-            System.out.println("Решений нет\n");
-        }
-
-    }
-}
+    
+    
